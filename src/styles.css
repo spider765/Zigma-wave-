@@ -835,7 +835,7 @@ body.dm .product-card h3 {
   
   /* CARD */
   .blog-card {
-    z
+    
     border: 1px solid var(--zw-border);
     border-radius: 16px;
     padding: 22px;
