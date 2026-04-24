@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import logo from "../assets/logo.png";
 export default function Navbar() {
   const [dark, setDark] = useState(false);
   const [open, setOpen] = useState(false); // mobile menu
@@ -16,7 +16,10 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <a className="nav-logo">Zigma Wave</a>
+      <a className="nav-logo" onClick={() => go("home")}>
+      <img src={logo} alt="Zigma Wave Logo" />
+  <span>Zigma Wave</span>
+</a>
 
       {/* LINKS (will become hamburger menu on mobile) */}
       <ul className={`nav-links ${open ? "open" : ""}`}>
@@ -31,11 +34,16 @@ export default function Navbar() {
 
       {/* RIGHT SIDE (ALWAYS OUTSIDE) */}
       <div className="nav-r">
-        <button className="theme-btn" onClick={toggleTheme}>
-          {dark ? "Light" : "Dark"}
-        </button>
+      <label className="theme-switch">
+  <input
+    type="checkbox"
+    checked={dark}
+    onChange={toggleTheme}
+  />
+  <span className="slider"></span>
+</label>
 
-        <button className="btn-nav" onClick={() => go("contact")}>
+        <button className="btn-nav" onClick={() => go("quotes")}>
           Get a Quote
         </button>
 

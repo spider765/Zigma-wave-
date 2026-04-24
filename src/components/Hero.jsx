@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import { RoundedBoxGeometry } from "three-stdlib";
 
 export default function Hero() {
   const canvasRef = useRef();
@@ -46,7 +47,7 @@ export default function Hero() {
 
     // 🧱 CREATE CARD WITH IMAGE
     const createCard = (img) => {
-      const geo = new THREE.BoxGeometry(1.6, 2.2, 0.15);
+      const geo = new RoundedBoxGeometry(1.6, 2.2, 0.15, 4, 0.12);
 
       const texture = loader.load(img);
       texture.anisotropy = renderer.capabilities.getMaxAnisotropy();

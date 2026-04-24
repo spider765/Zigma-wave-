@@ -34,7 +34,7 @@ export default function Quotes() {
   };
 
   return (
-    <section id="contact">
+<section id="quotes">
       <div className="contact-grid">
 
         {/* LEFT */}

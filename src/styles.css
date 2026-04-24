@@ -8,7 +8,7 @@
   border-radius: 18px;
 
   /* glass background */
-  background: rgba(255, 255, 255, 0.04);
+  background:     #2E2E8C;
   backdrop-filter: blur(12px);
 
   /* border + glow base */
@@ -146,7 +146,7 @@ body.dm .faq-q {
   }
   
   body {
-    background: #0b0f19;
+    background: #05044A;
     color: #e1dddb;
     line-height: 1.6;
     transition: 0.3s ease;
@@ -324,7 +324,7 @@ body.dm .faq-q {
   .svc-card {
     padding: 20px;
     border-radius: 12px;
-    background: #121826;
+    background:    #2E2E8C;
     transition: 0.3s;
   }
   
@@ -366,8 +366,7 @@ body.dm .faq-q {
   
   .blog-card {
     padding: 20px;
-    background: #121826;
-    border-radius: 10px;
+    background:     #2E2E8C
   }
   
   body.dm .blog-card {
@@ -477,7 +476,7 @@ body.dm .faq-q {
   
   .why-item {
     padding: 12px 16px;
-    background: #121826;
+    background:     #2E2E8C;
     border-radius: 8px;
     transition: 0.2s;
     color: #efeff1 ;
@@ -527,7 +526,7 @@ body.dm .faq-q {
 
 .product-card {
   position: relative;
-  background:  rgba(18, 24, 38);
+  background:    #2E2E8C;
   padding: 2rem;
   border-radius: 18px;
   border: 1px solid var(--zw-border);
@@ -554,6 +553,7 @@ body.dm .faq-q {
           mask-composite: exclude;
   opacity: 0;
   transition: 0.4s;
+  pointer-events: none; /* ← add this */
 }
 
 /* hover */
@@ -597,6 +597,9 @@ body.dm .product-card {
 body.dm .product-card h3 {
   color: var(--white);
 }
+body.dm #quotes {
+  background: #05044A;
+  }
 
 /* ===================== */
 /* TEXT */
@@ -639,17 +642,20 @@ body.dm .product-card h3 {
   margin-top: auto;
   padding: 10px 16px;
   background: linear-gradient(135deg, var(--blue), #5a58ff);
-  color: gray;
+  color: white; /* ← was gray */
   border-radius: 10px;
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 600;
   transition: 0.25s;
+  cursor: pointer; /* ← add this */
+  border: none; /* ← add this */
 }
 
 .product-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(119,117,255,0.4);
+  color: white; /* ← keep white on hover */
 }
 
 /* ===================== */
@@ -730,6 +736,7 @@ body.dm .product-card h3 {
     padding: 24px;
     transition: 0.3s ease;
     position: relative;
+    
   }
   
   .testi-card:hover {
@@ -1170,7 +1177,7 @@ body.dm .product-card h3 {
   
   /* DARK MODE SUPPORT */
   body.dm #contact {
-    background: #070716;
+    background: #05044A;
   }
   
   body.dm input,
@@ -1412,7 +1419,7 @@ body.dm #footer {
   margin-left: 10px;
   padding: 4px 8px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.1);
+  
 }
 
 .cw-sub {
@@ -1779,7 +1786,7 @@ body.dm #footer {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(11, 15, 25, 0.9);
+  background:     #2E2E8C;
   backdrop-filter: blur(10px);
   transition: background 0.3s ease;
 }
@@ -1833,4 +1840,84 @@ body.dm .navbar {
   cursor: pointer;
   border: 1px solid currentColor;
   
+}
+/* SWITCH CONTAINER */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+/* HIDE DEFAULT CHECKBOX */
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* SLIDER BACKGROUND */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: 0.3s;
+}
+
+/* CIRCLE */
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+/* WHEN ACTIVE (DARK MODE) */
+.theme-switch input:checked + .slider {
+  background-color: #0C4A60; /* your theme color */
+}
+
+.theme-switch input:checked + .slider::before {
+  transform: translateX(24px);
+}
+.slider::after {
+  content: "🌙";
+  position: absolute;
+  right: 6px;
+  top: 3px;
+  font-size: 12px;
+}
+
+.theme-switch input:checked + .slider::after {
+  content: "☀️";
+  left: 6px;
+  right: auto;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+}
+
+.nav-logo img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+.nav-logo span {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #E1DDDB;
+}
+body.dm .nav-logo span {
+  color: #aeacab;
 }
